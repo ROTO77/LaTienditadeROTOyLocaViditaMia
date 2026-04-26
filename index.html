@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda de Cuadernos Artesanales</title>
+    <style>
+        /* Estilo inspirado en lo artístico y vintage */
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fcfaf7; color: #333; margin: 0; padding: 0; }
+        header { background-color: #fdf2e9; padding: 40px 20px; text-align: center; border-bottom: 2px solid #eaddcf; }
+        h1 { color: #8d6e63; margin: 0; font-size: 2.5em; }
+        .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
+        .tarjeta { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center; padding-bottom: 20px; transition: 0.3s; }
+        .tarjeta:hover { transform: translateY(-5px); }
+        .tarjeta img { width: 100%; height: 250px; object-fit: cover; }
+        .tarjeta h3 { color: #5d4037; margin: 15px 0 5px; }
+        .precio { color: #2e7d32; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 15px; }
+        .btn-whatsapp { background-color: #25d366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; display: inline-block; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mis Creaciones Artesanales</h1>
+    <p>Cuadernos de tapa dura con ilustraciones originales</p>
+</header>
+
+<section class="galeria">
+    <div class="tarjeta">
+        <img src="https://via.placeholder.com/300" alt="Cuaderno Ilustrado">
+        <h3>Cuaderno A5 - Diseño Botánico</h3>
+        <span class="precio">$12.000</span>
+        <a href="https://wa.me/TU_TELEFONO?text=Hola! Quiero el cuaderno botánico" class="btn-whatsapp">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="tarjeta">
+        <img src="https://via.placeholder.com/300" alt="Cuaderno Personalizado">
+        <h3>Cuaderno A5 - Arte Vintage</h3>
+        <span class="precio">$12.000</span>
+        <a href="https://wa.me/TU_TELEFONO?text=Hola! Quiero el cuaderno vintage" class="btn-whatsapp">Consultar por WhatsApp</a>
+    </div>
+</section>
+
+</body>
+</html>
