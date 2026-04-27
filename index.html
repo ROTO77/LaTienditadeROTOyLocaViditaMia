@@ -5,18 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Tienda de Cuadernos Artesanales</title>
     <style>
-        /* Estilo inspirado en lo artístico y vintage */
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fcfaf7; color: #333; margin: 0; padding: 0; }
-        header { background-color: #fdf2e9; padding: 40px 20px; text-align: center; border-bottom: 2px solid #eaddcf; }
-        h1 { color: #8d6e63; margin: 0; font-size: 2.5em; }
-        .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
-        .tarjeta { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center; padding-bottom: 20px; transition: 0.3s; }
-        .tarjeta:hover { transform: translateY(-5px); }
-        .tarjeta img { width: 100%; height: 250px; object-fit: cover; }
-        .tarjeta h3 { color: #5d4037; margin: 15px 0 5px; }
-        .precio { color: #2e7d32; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 15px; }
-        .btn-whatsapp { background-color: #25d366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; display: inline-block; }
-    </style>
+    /* Una paleta suave, artesanal y vintage */
+    body { 
+        font-family: 'Verdana', sans-serif; 
+        background-color: #fef9e7; /* Un amarillo pastel muy clarito de fondo */
+        color: #4a5d4e; /* Verde oscuro para el texto, más suave que el negro */
+        margin: 0; 
+        padding: 0; 
+    }
+
+    header { 
+        background-color: #e8f6f3; /* Celeste pastel muy suave */
+        padding: 50px 20px; 
+        text-align: center; 
+        border-bottom: 3px solid #d4efdf; /* Detalle en verde pastel */
+    }
+
+    h1 { 
+        color: #7fb3d5; /* Un celeste más sólido para el título */
+        margin: 0; 
+        font-size: 2.8em;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Toque sutil */
+    }
+
+    p { font-style: italic; color: #aeb6bf; }
+
+    .galeria { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 25px; 
+        padding: 40px; 
+    }
+
+    .tarjeta { 
+        background: #ffffff; 
+        border-radius: 8px; /* Bordes menos redondeados para un look más de papel */
+        overflow: hidden; 
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.02); 
+        border: 1px solid #f2f4f4;
+        text-align: center; 
+        padding-bottom: 25px; 
+    }
+
+    .tarjeta img { 
+        width: 100%; 
+        height: 300px; 
+        object-fit: cover; 
+        border-bottom: 1px solid #f2f4f4;
+    }
+
+    .tarjeta h3 { color: #5dade2; margin: 20px 0 10px; }
+
+    .precio { 
+        color: #52be80; /* Verde para el precio */
+        font-weight: bold; 
+        font-size: 1.3em; 
+        display: block; 
+        margin-bottom: 20px; 
+    }
+
+    .btn-whatsapp { 
+        background-color: #a9dfbf; /* Verde pastel para el botón */
+        color: #ffffff; 
+        text-decoration: none; 
+        padding: 12px 25px; 
+        border-radius: 4px; 
+        font-weight: bold; 
+        display: inline-block;
+        transition: background 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+        background-color: #7dcea0; /* Se oscurece un poquito al pasar el mouse */
+    }
+</style>
 </head>
 <body>
 
