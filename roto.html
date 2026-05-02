@@ -1,122 +1,322 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>El Lado ROTO de la Luna</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Lado ROTO de la Luna</title>
+    <style>
+        /* 1. CONFIGURACIÓN GENERAL (ESTILO ROTO) */
+        body { 
+            font-family: 'Arial Black', sans-serif; 
+            background-color: #f2f0ef; /* Blanco roto */
+            color: #1a1a1a; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+        }
+
+        header { 
+            background-color: #8E867E; 
+            padding: 60px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid #ffea00; /* Línea amarilla vibrante */
+        }
+
+        h1 { 
+            color: #ffea00; 
+            margin: 0; 
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0px #1a1a1a;
+        }
+
+        header p { 
+            color: #ffffff; 
+            font-size: 1.2em;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* 2. MENÚ LATERAL AUTOMÁTICO (HOVER) */
+        .nav-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 60px;
+            z-index: 1001;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: #1a1a1a; 
+            overflow-x: hidden;
+            transition: 0.5s ease;
+            padding-top: 80px;
+        }
+
+        .nav-container:hover .sidenav {
+            width: 280px;
+        }
+
+        .sidenav a {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ff00ff; /* Fucsia */
+            display: block;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .sidenav a:hover { 
+            color: #ffea00; 
+            background-color: #333;
+            padding-left: 40px;
+        }
+
+        .btn-menu-fake {
+            position: fixed;
+            top: 20px;
+            left: 15px;
+            background-color: #ff00ff;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 5px;
+            font-size: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* 3. CONTENIDO DE PRESENTACIÓN */
+        #presentacion {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0;
+            background: white;
+            border: 3px solid #1a1a1a;
+            box-shadow: 10px 10px 0px #ffea00;
+        }
+
+        .img-header {
+            width: 100%;
+            height: auto;
+            border-bottom: 3px solid #1a1a1a;
+            display: block;
+        }
+
+        .contenido-texto {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #ff00ff;
+            text-transform: uppercase;
+            border-left: 8px solid #ffea00;
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        .poesia {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1em;
+            color: #333;
+            font-weight: normal;
+        }
+
+        /* 4. GALERÍA DE OBRAS (RESPETANDO TODOS TUS JPG) */
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            padding: 30px;
+            background-color: #1a1a1a; 
+        }
+
+        .item-obra {
+            background: #222;
+            padding: 10px;
+            border: 1px solid #ffea00;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .item-obra:hover {
+            transform: translateY(-5px);
+            border-color: #ff00ff;
+        }
+
+        .item-obra img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-obra p {
+            color: #f2f0ef;
+            font-size: 0.9em;
+            margin-top: 15px;
+            font-family: 'Arial', sans-serif;
+            padding: 0 10px;
+        }
+
+        /* 5. NAVEGACIÓN INFERIOR */
+        .navegacion-iconos {
+            text-align: center;
+            padding: 50px;
+            background: #8E867E;
+            border-top: 3px solid #1a1a1a;
+        }
+
+        .navegacion-iconos a img {
+            border: 4px solid #ffea00;
+            border-radius: 50%;
+            margin: 0 20px;
+            transition: 0.3s;
+        }
+
+        .navegacion-iconos a img:hover {
+            transform: scale(1.15) rotate(5deg);
+            border-color: #ff00ff;
+        }
+
+        .boton-contenedor {
+            text-align: center;
+            padding: 40px;
+            background-color: #8E867E;
+        }
+
+        .boton-estilo {
+            background-color: #ff00ff;
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            border: 3px solid #1a1a1a;
+            box-shadow: 6px 6px 0px #ffea00;
+            transition: 0.2s;
+        }
+
+        .boton-estilo:hover {
+            background-color: #1a1a1a;
+            color: #ffea00;
+            box-shadow: 6px 6px 0px #ff00ff;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #8E867E;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8em;
+            border-top: 4px solid #ffea00;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
+<!-- MENÚ QUE SE ABRE SOLO -->
+<div class="nav-container">
+    <div class="btn-menu-fake">☰</div>
+    <div id="menuLateral" class="sidenav">
+        <a href="index.html">Página Principal</a>
+        <a href="LVM.html">Loca Vidita Mia</a>
+        <a href="urbex.html">Sobre el URBEX</a>
+        <a href="sobremí.html">Sobre mí</a>
+    </div>
+</div>
+
+<header>
     <h1>ROTO</h1>
     <p>Un Pasaje a lo Recontra Profundo</p>
-  </header>
+</header>
 
-  <nav>
-    <a href="index.html">Página Principal</a>
-    <a href="LVM.html">Loca Vidita Mia</a>
-    <a href="urbex.html">Val.dark.urbex</a>
-  </nav>
+<main>
+    <section id="presentacion">
+        <!-- CABECERA DE SECCIÓN -->
+        <img src="roto.jpg" class="img-header" alt="Cabecera Roto">
+        
+        <article class="contenido-texto">
+            <h2>Había una vez un ROTO en la República de Morón</h2>
+            
+            <p class="poesia">
+                Se preguntarán ¿quién es ROTO y porqué ese nombre?<br><br>
+                ROTO no es sólo un nombre. Es un símbolo,<br>
+                porque siento que en el fondo todos estamos un poco rotos.<br>
+                Por las batallas que nos impone la vida, las pérdidas,<br>
+                los sueños fragmentados, por todas esas cicatrices que no se ven<br>
+                pero se sienten y son las que a la vez nos dejan en un estado de vulnerabilidad<br>
+                que nos obliga a hacernos fuertes por supervivencia.<br><br>
+                Por un sinfín de motivos, cada persona está peleando su propia batalla,<br>
+                por eso, sé amable con quien te cruces.<br><br>
+                ROTO nació hace ya tiempo pero permaneció sin nombre y a la sombra por largos años.<br>
+                Fue mutando al igual que mutamos cualquiera de nosotros conforme al tiempo y las experiencias.<br>
+                Sus rasgos se fueron endureciendo, haciéndose más profundos los surcos y cayendo poco a poco su mirada.
+            </p>
+        </article>
 
-  <section id="presentacion">
-    <!-- Imagen Principal -->
-    <img src="roto.jpg" class="img-header" alt="Cabecera Roto">
-    
-    <article class="contenido-texto">
-      <h2>Había una vez un ROTO en la República de Morón</h2>
-      
-      <p class="poesia">
-        Se preguntarán ¿quién es ROTO y porqué ese nombre?<br><br>
-        ROTO no es sólo un nombre. Es un símbolo,<br>
-        porque siento que en el fondo todos estamos un poco rotos.<br>
-        Por las batallas que nos impone la vida, las pérdidas,<br>
-        los sueños fragmentados, por todas esas cicatrices que no se ven<br>
-        pero se sienten y son las que a la vez nos dejan en un estado de vulnerabilidad<br>
-        que nos obliga a hacernos fuertes por supervivencia.<br><br>
-        Por un sinfín de motivos, cada persona está peleando su propia batalla,<br>
-        por eso, sé amable con quien te cruces.<br><br>
-        ROTO nació hace ya tiempo pero permaneció sin nombre y a la sombra por largos años.<br>
-        Fue mutando al igual que mutamos cualquiera de nosotros conforme al tiempo y las experiencias.<br>
-        Sus rasgos se fueron endureciendo, haciéndose más profundos los surcos y cayendo poco a poco su mirada.
-      </p>
-    </article>
+        <!-- GALERÍA DE OBRAS COMPLETA -->
+        <div class="galeria">
+            <div class="item-obra">
+                <img src="roto1.jpg" alt="Máscara">
+                <p>Máscara de arcilla intervenida con acrílicos</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto2.jpg" alt="Mural">
+                <p>Mural 5x4mts Morón calles Saldías y Machado</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto3.jpg" alt="Madera">
+                <p>Acrílico sobre madera</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto4.jpg" alt="Tinta">
+                <p>Tinta china sobre papel</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto5.jpg" alt="Acuarela">
+                <p>Lapicera y lápices acuarelables sobre papel</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto6.jpg" alt="Microfibra">
+                <p>Microfibra y tinta serigráfica sobre papel misionero</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto7.jpg" alt="Proceso">
+                <p>Máscara de arcilla en proceso</p>
+            </div>
+            <div class="item-obra">
+                <img src="roto8.jpg" alt="Escultura">
+                <p>Escultura en arcilla y metal</p>
+            </div>
+        </div>
 
-    <!-- Galería de Obras -->
-    <div class="galeria">
-      <div class="item-obra">
-        <img src="roto1.jpg" alt="Máscara de arcilla">
-        <p>Máscara de arcilla intervenida con acrílicos</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto2.jpg" alt="Mural Morón">
-        <p>Mural 5x4mts Morón calles Saldías y Machado</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto3.jpg" alt="Acrílico sobre madera">
-        <p>Acrílico sobre madera</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto4.jpg" alt="Tinta china">
-        <p>Tinta china sobre papel</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto5.jpg" alt="Lapicera y acuarela">
-        <p>Lapicera y lápices acuarelables sobre papel</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto6.jpg" alt="Microfibra">
-        <p>Microfibra y tinta serigráfica sobre papel misionero</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto7.jpg" alt="Proceso máscara">
-        <p>Máscara de arcilla en proceso</p>
-      </div>
-
-      <div class="item-obra">
-        <img src="roto8.jpg" alt="Escultura">
-        <p>Escultura en arcilla y metal</p>
-      </div>
-    </div>
-
-    <!-- Navegación Inferior -->
-    <div class="navegacion-iconos">
-      <a href="lvm.html"><img src="lvm2.jpg" alt="LVM"></a>
-      <a href="urbex.html"><img src="urbex1.jpg" alt="Urbex"></a>
-    </div>
-
-    <div class="boton-contenedor">
-      <a href="INDEX.html" class="boton-estilo"> >>>>>>>>>>>>>>>>>>>>>> VOLVER AL INICIO </a>
-    </div>
-
-  </section> 
-
-  <footer>
-    <p> © 2025 - [Valeria Tremul] | Todos los derechos reservados.</p>
-  </footer>
-
-</body>
-</html>            <a href="lvm.html">
-                <img src="lvm2.jpg" width="100" height="100" alt="Ir a LVM">
+        <!-- ICONOS DE NAVEGACIÓN -->
+        <div class="navegacion-iconos">
+            <a href="LVM.html">
+                <img src="lvm2.jpg" width="120" height="120" alt="Ir a LVM">
             </a>
             <a href="urbex.html">
-                <img src="urbex1.jpg" width="100" height="100" alt="Ir a Urbex">
+                <img src="urbex1.jpg" width="120" height="120" alt="Ir a Urbex">
             </a>
-            <br><br>
-            <a href="index.html" class="boton-estilo"> >>>>>>>>>>>>>>>>>>>>>> VOLVER AL INICIO </a>
-        </section>
+        </div>
 
-    </main>
+        <div class="boton-contenedor">
+            <a href="index.html" class="boton-estilo"> >>> VOLVER AL INICIO <<< </a>
+        </div>
+    </section> 
+</main>
 
-    <footer>
-        <p>© 2025 - [Valeria Tremul] | Todos los derechos reservados.</p>
-    </footer>
+<footer>
+    <p>© 2025 - [Valeria Tremul] | Todos los derechos reservados.</p>
+</footer>
 
 </body>
 </html>
