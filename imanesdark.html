@@ -2,77 +2,241 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cuadernos | Mi Tienda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imanes Dark | Tienda en Construcción</title>
     <style>
-        /* EL MAQUILLAJE (Igual en todas las páginas) */
-        body { font-family: sans-serif; background-color: #000; color: white; margin: 0; padding: 20px; }
-        
+        /* 1. CONFIGURACIÓN GENERAL (ESTILO COHERENTE) */
+        body { 
+            font-family: 'Arial Black', sans-serif; 
+            background-color: #48494B; /* GRIS TOPO */
+            color: #ffffff; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        header { 
+            background-color: #1a1a1a; 
+            padding: 60px 20px; 
+            border-bottom: 5px solid #ffea00; 
+        }
+
+        h1 { 
+            color: #ffea00; 
+            margin: 0; 
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .en-construccion {
+            color: #ff00ff; /* Fucsia */
+            font-size: 1.5em;
+            margin-top: 10px;
+            text-transform: uppercase;
+            background: #000;
+            display: inline-block;
+            padding: 5px 20px;
+            border: 2px dashed #ff00ff;
+        }
+
+        /* 2. MENÚ LATERAL AUTOMÁTICO */
+        .nav-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 60px;
+            z-index: 1001;
+        }
+
         .sidenav {
-            height: 100%; width: 0; position: fixed; z-index: 1000;
-            top: 0; left: 0; background-color: #111; overflow-x: hidden;
-            transition: 0.5s; padding-top: 60px;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: #1a1a1a; 
+            overflow-x: hidden;
+            transition: 0.5s ease;
+            padding-top: 80px;
+            text-align: left;
+        }
+
+        .nav-container:hover .sidenav {
+            width: 280px;
         }
 
         .sidenav a {
-            padding: 10px 30px; text-decoration: none; font-size: 22px;
-            color: #ff00ff; display: block; transition: 0.3s;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ff00ff;
+            display: block;
+            transition: 0.3s;
+            white-space: nowrap;
         }
 
-        .sidenav a:hover { color: #fdfd96; }
+        .sidenav a:hover { 
+            color: #ffea00; 
+            background-color: #333;
+            padding-left: 40px;
+        }
 
-        .btn-menu {
-            font-size: 20px; cursor: pointer; background-color: #ff00ff;
-            color: white; padding: 10px 15px; border: none; border-radius: 5px;
+        .btn-menu-fake {
+            position: fixed;
+            top: 20px;
+            left: 15px;
+            background-color: #ff00ff;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        /* 3. GRILLA DE VENTAS (30 ESPACIOS) */
+        .contenedor-ventas {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .producto-vacio {
+            background-color: rgba(26, 26, 26, 0.5);
+            border: 2px solid #555;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto-vacio:hover {
+            border-color: #ffea00;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        .producto-vacio img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            background-color: #333; /* Color de fondo mientras no hay foto */
+        }
+
+        .info-placeholder {
+            padding: 15px;
+            color: #888;
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        /* 4. BOTONES */
+        .boton-estilo {
+            display: inline-block;
+            background-color: #ff00ff;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-weight: bold;
+            margin: 40px 0;
+            border: 3px solid #1a1a1a;
+            box-shadow: 5px 5px 0px #ffea00;
+            transition: 0.2s;
+        }
+
+        .boton-estilo:hover { 
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #ffea00;
+        }
+
+        footer { 
+            background: #000;
+            color: #8E867E; 
+            padding: 40px 0; 
+            font-size: 12px; 
+            border-top: 4px solid #ffea00;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <!-- EL MENÚ (Igual en todas las páginas) -->
-    <div id="menuLateral" class="sidenav">
-        <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
-        <a href="index.html">Inicio</a>
-        <a href="cuadernos.html">Cuadernos</a>
-        <a href="locaviditamiaartesanias.html">Artesanías</a>
-        <a href="imanesdark.html">Láminas</a>
-        <a href="roto.html">ROTO</a>
-        <a href="urbex.html">Sobre el URBEX</a>
-        <a href="sobremi.html">Sobremi</a>
-        
+    <!-- MENÚ LATERAL -->
+    <div class="nav-container">
+        <div class="btn-menu-fake">☰</div>
+        <div class="sidenav">
+            <a href="index.html">Página Principal</a>
+            <a href="roto.html">El lado ROTO</a>
+            <a href="LVM.html">Loca Vidita Mia</a>
+            <a href="urbex.html">Sobre el URBEX</a>
+            <a href="sobremi.html">Sobre mí</a>
+        </div>
     </div>
 
-    <button class="btn-menu" onclick="abrirCerrar()">☰ Categorías</button>
+    <header>
+        <h1>Imanes Dark</h1>
+        <div class="en-construccion">ESTA SECCION ESTA EN CONSTRUCCION</div>
+    </header>
 
-    <!-- CONTENIDO ESPECÍFICO DE ESTA PÁGINA -->
-    <h1>Sección de Cuadernos</h1>
-    <p>Aquí empezarás a subir las fotos de tus cuadernos...</p>
+    <main>
+        <p style="margin-top: 30px; color: #ffea00;">Próximamente nuevos artículos a la venta...</p>
+        
+        <div class="contenedor-ventas">
+            <!-- AQUÍ TIENES LAS 30 CELDAS LISTAS -->
+            <!-- Para subir una foto, cambia 'placeholder.jpg' por el nombre de tu archivo -->
+            
+            <!-- Bloque de 1 a 10 -->
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 01</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 02</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 03</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 04</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 05</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 06</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 07</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 08</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 09</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 10</div></div>
 
-    <!-- EL CEREBRO (Igual en todas las páginas) -->
-    <script>
-        function abrirCerrar() {
-            var menu = document.getElementById("menuLateral");
-            if (menu.style.width === "250px") {
-                menu.style.width = "0";
-            } else {
-                menu.style.width = "250px";
-            }
-        }
-    </script>
+            <!-- Bloque de 11 a 20 -->
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 11</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 12</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 13</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 14</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 15</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 16</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 17</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 18</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 19</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 20</div></div>
+
+            <!-- Bloque de 21 a 30 -->
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 21</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 22</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 23</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 24</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 25</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 26</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 27</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 28</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 29</div></div>
+            <div class="producto-vacio"><img src="proximamente.jpg" alt="Venta"><div class="info-placeholder">Artículo 30</div></div>
+        </div>
+
+        <a href="index.html" class="boton-estilo">VOLVER AL INICIO</a>
+    </main>
+
+    <footer>
+        <p>© 2026 - [Valeria Tremul] | Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
-
-<!-- El Menú con tus categorías reales -->
-<div id="menuLateral" class="sidenav">
-  <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
-  <a href="LocaViditaMiaArtesanías.html">Loca Vidita Mia Artesanías</a>
-  <a href="ImanesDark.html">Imanes dark</a>
-  <a href="Sobremi.html">Sobre mi</a>
-</div>
-
-<!-- El Menú con tus categorías reales -->
-<div id="menuLateral" class="sidenav">
-  <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
-  <a href="locaviditamiaartesanias.html">Loca Vidita Mia Artesanías</a>
-  <a href="cuadernos.html">Cuadernos</a>
-  <a href="sobremi.html">Sobre mi</a>
-</div> 
