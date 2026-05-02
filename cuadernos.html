@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cuadernos | Mi Tienda</title>
+    <title>Cuadernos | La Tiendita de ROTO</title>
     <style>
-        /* EL MAQUILLAJE (Igual en todas las páginas) */
+        /* BASE Y MENÚ */
         body { font-family: sans-serif; background-color: #000; color: white; margin: 0; padding: 20px; }
         
         .sidenav {
@@ -14,7 +14,7 @@
         }
 
         .sidenav a {
-            padding: 10px 30px; text-decoration: none; font-size: 22px;
+            padding: 10px 30px; text-decoration: none; font-size: 20px;
             color: #ff00ff; display: block; transition: 0.3s;
         }
 
@@ -23,242 +23,130 @@
         .btn-menu {
             font-size: 20px; cursor: pointer; background-color: #ff00ff;
             color: white; padding: 10px 15px; border: none; border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* DISEÑO DE LA GALERÍA DE PRODUCTOS */
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .tarjeta {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            width: 280px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            border-radius: 5px;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .tarjeta h3 { font-size: 14px; margin: 15px 0; color: #fdfd96; min-height: 50px; }
+
+        .precio { display: block; font-size: 20px; font-weight: bold; margin-bottom: 15px; color: #ff00ff; }
+
+        .btn-whatsapp {
+            display: block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- EL MENÚ (Igual en todas las páginas) -->
+    <!-- MENÚ LATERAL -->
     <div id="menuLateral" class="sidenav">
         <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
         <a href="index.html">Inicio</a>
-        <a href="cuadernos.html">Cuadernos</a>
-        <a href="artesanias.html">Artesanías</a>
-        <a href="laminas.html">Láminas</a>
+        <a href="Cuadernos.html">Cuadernos</a>
+        <a href="LocaViditaMiaArtesanías.html">Artesanías</a>
+        <a href="ImanesDark.html">Imanes Dark</a>
+        <a href="Sobremi.html">Sobre mí</a>
     </div>
 
     <button class="btn-menu" onclick="abrirCerrar()">☰ Categorías</button>
 
-    <!-- CONTENIDO ESPECÍFICO DE ESTA PÁGINA -->
-    <h1>Sección de Cuadernos</h1>
-    <p>
-        <section class="galeria">
-    
-    <div class="tarjeta"> 
-         <img src="roto15.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO raiz -Tapa semi rígida laminada- 48 hojas rayado </h3>
-        <span class="precio">$ 13.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO raiz -Tapa semi rígida laminada- 48 hojas" class="btn-whatsapp">COMPRAR</a>
-    </div>
+    <h1>Mis Cuadernos</h1>
 
-    <div class="tarjeta"> 
-         <img src="roto16.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 abrochado ROTO verde - Tapa semi rígida laminada- 48 hojas rayado </h3>
-        <span class="precio">$ 13.000</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 abrochado ROTO verde - Tapa semi rígida" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta"> 
-         <img src="roto19.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 abrochado ROTO araña- Tapa semi rígida laminada- 48 hojas rayado</h3>
-        <span class="precio">$ 13.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el productoCuaderno A5 abrochado ROTO araña- Tapa semi rígida" class="btn-whatsapp">COMPRAR</a>
-    </div>
+    <section class="galeria">
+        <!-- PRODUCTO 1 -->
+        <div class="tarjeta"> 
+            <img src="roto15.jpg" alt="Producto">
+            <h3>Cuaderno A5 ROTO raiz -Tapa semi rígida laminada- 48 hojas rayado</h3>
+            <span class="precio">$ 13.000-</span>
+            <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO raiz" class="btn-whatsapp">COMPRAR</a>
+        </div>
 
-    <div class="tarjeta"> 
-         <img src="rotovampibroche.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 abrochado ROTO vampi- Tapa semi rígida laminada- 48 hojas rayado</h3>
-        <span class="precio">$ 13.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 abrochado ROTO vampi- Tapa semi rígida" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta"> 
-         <img src="block.jpg" alt="Producto de La Tiendita">
-        <h3>Block ojos de ROTO - Tapa dura- 80 hojas lisas </h3>
-        <span class="precio">$ 15.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Block ojos de ROTO" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta"> 
-         <img src="roto17.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 abrochado ROTO sapo - Tapa semi rígida laminada- 48 hojas rayado </h3>
-        <span class="precio">$ 13.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 abrochado ROTO sapo - Tapa semi rígida " class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta">
-        <img src="roto1.jpg" alt="Producto de La Tiendita" >
-        <h3>Cuaderno A5 ROTO a rayas -Tapa Dura Laminada, espiral metalico - 80 hojas </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO a rayas -Tapa Dura Laminada" class="btn-whatsapp">COMPRAR</a>
-    </div>
+        <!-- PRODUCTO 2 -->
+        <div class="tarjeta"> 
+            <img src="roto16.jpg" alt="Producto">
+            <h3>Cuaderno A5 abrochado ROTO verde - Tapa semi rígida laminada</h3>
+            <span class="precio">$ 13.000-</span>
+            <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 verde" class="btn-whatsapp">COMPRAR</a>
+        </div>
 
-    <div class="tarjeta">
-         <img src="lvm1.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 Frida - Tapa Dura Laminada, espiral metalico- 80 hojas rayado</h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 Frida - Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-     <div class="tarjeta"> 
-         <img src="lvm4.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 NIÑA SHABBY - Tapa Dura Laminada, espiral metalico- 100 hojas rayado </h3>
-        <span class="precio">$ 29.999-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 NIÑA SHABBY - Tapa Dura " class="btn-whatsapp">SIN STOCK</a>
-    </div>
-     <div class="tarjeta"> 
-         <img src="roto8.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO Vampi - Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO Vampi - Tapa Dura " class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta"> 
-         <img src="roto2.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO turquesa -Tapa Dura Laminada , espiral metalico - 80 hojas rayado</h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO turquesa -Tapa Dura " class="btn-whatsapp">COMPRAR</a>
-    </div>
-<div class="tarjeta"> 
-         <img src="lvm2.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5  FLORECE - Tapa Dura Laminada , espiral metalico- 80 hojas rayado</h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5  FLORECE" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="roto3.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO logo -Tapa Dura Laminada , espiral metalico- 80 hojas rayado</h3>
-        <span class="precio">$ 28.900-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO logo -Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="lvm3.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 VENUS - Tapa Dura Laminada, espiral metalico- 80 hojas rayado</h3>
-        <span class="precio">$ 29.999-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 VENUS - Tapa Dura " class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="roto4.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO (T.China I)Tapa Dura Laminada, espiral metalico- 80 hojas rayado- </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO (T.China I)Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta"> 
-         <img src="roto5.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO verde - Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 ROTO verde - Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="lvm5.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 CORAZON -Tapa Dura Laminada, espiral metalico- 80 hojas rayado -</h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 CORAZON -Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="roto6.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO II Tapa Dura Laminada, espiral metalico- 80 hojas rayado</h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO II Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="lvm6.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 FRIDITA Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 29.990</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 FRIDITA Tapa Dura" class="btn-whatsapp">SIN STOCK</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="roto7.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO  doble ojo - Tapa Dura Laminada, espiral metalico- 80 hojas rayado</h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO  doble ojo" class="btn-whatsapp">COMPRAR</a>
-    </div>
-  <div class="tarjeta"> 
-         <img src="roto8.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 SAPO - Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 SAPO - Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="roto9.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO franja verde -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO franja verde -Tapa Dura " class="btn-whatsapp">COMPRAR</a>
-    </div>
-    <div class="tarjeta"> 
-         <img src="roto10.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO Laberinto- Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO Laberinto" class="btn-whatsapp">COMPRAR</a>
-    </div>
-        
-    <div class="tarjeta"> 
-         <img src="roto11.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO bosque - Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO bosque" class="btn-whatsapp">COMPRAR</a>
-    </div>
-        
-    <div class="tarjeta"> 
-         <img src="roto12.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO raiz -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO raiz -Tapa Dura " class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-    <div class="tarjeta"> 
-         <img src="roto13.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO oruga -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO oruga -Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-        
-    <div class="tarjeta"> 
-         <img src="roto14.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO hiperfoco -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO hiperfoco " class="btn-whatsapp">COMPRAR</a>
-    </div>
-        
-    <div class="tarjeta"> 
-         <img src="roto20.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 Misfits -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 Misfits" class="btn-whatsapp">COMPRAR</a>
-    </div>
-        
-    <div class="tarjeta"> 
-         <img src="roto21.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 NOSFERATU -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 NOSFERATU " class="btn-whatsapp">COMPRAR</a>
-    </div>
+        <!-- PRODUCTO 3 -->
+        <div class="tarjeta"> 
+            <img src="roto19.jpg" alt="Producto">
+            <h3>Cuaderno A5 abrochado ROTO araña- Tapa semi rígida laminada</h3>
+            <span class="precio">$ 13.000-</span>
+            <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 araña" class="btn-whatsapp">COMPRAR</a>
+        </div>
 
-         <div class="tarjeta"> 
-         <img src="roto22.jpg" alt="Producto de La Tiendita">
-        <h3>Cuaderno A5 ROTO vampi -Tapa Dura Laminada, espiral metalico- 80 hojas rayado </h3>
-        <span class="precio">$ 28.000-</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa este producto Cuaderno A5 ROTO vampi -Tapa Dura" class="btn-whatsapp">COMPRAR</a>
-    </div>
-    
-</section>
-<script>
-  function abrirCerrar() {
-    var menu = document.getElementById("menuLateral");
-    if (menu.style.width === "250px") {
-      menu.style.width = "0";
-    } else {
-      menu.style.width = "250px";
-    }
-  }
-</script>
-</body>
-</html>
+        <!-- PRODUCTO 4 -->
+        <div class="tarjeta"> 
+            <img src="rotovampibroche.jpg" alt="Producto">
+            <h3>Cuaderno A5 abrochado ROTO vampi- Tapa semi rígida laminada</h3>
+            <span class="precio">$ 13.000-</span>
+            <a href="https://wa.me/5491130688712?text=Hola! Me interesa el producto Cuaderno A5 vampi" class="btn-whatsapp">COMPRAR</a>
+        </div>
 
-    </p>
+        <!-- PRODUCTO 5 -->
+        <div class="tarjeta"> 
+            <img src="block.jpg" alt="Producto">
+            <h3>Block ojos de ROTO - Tapa dura- 80 hojas lisas</h3>
+            <span class="precio">$ 15.000-</span>
+            <a href="https://wa.me/5491130688712?text=Hola! Me interesa el Block ojos" class="btn-whatsapp">COMPRAR</a>
+        </div>
 
-    <!-- EL CEREBRO (Igual en todas las páginas) -->
+        <!-- PRODUCTO 6 -->
+        <div class="tarjeta"> 
+            <img src="roto1.jpg" alt="Producto">
+            <h3>Cuaderno A5 ROTO a rayas - Tapa Dura, espiral - 80 hojas</h3>
+            <span class="precio">$ 28.000-</span>
+            <a href="https://wa.me/5491130688712?text=Hola! Me interesa el Cuaderno A5 a rayas" class="btn-whatsapp">COMPRAR</a>
+        </div>
+
+        <!-- PRODUCTO 7 -->
+        <div class="tarjeta"> 
+            <img src="lvm4.jpg" alt="Producto">
+            <h3>Cuaderno A5 NIÑA SHABBY - Tapa Dura, espiral- 100 hojas</h3>
+            <span class="precio">$ 29.999-</span>
+            <a href="#" class="btn-whatsapp" style="background-color: #555;">SIN STOCK</a>
+        </div>
+
+        <!-- ... Puedes seguir agregando más bloques de "tarjeta" aquí ... -->
+
+    </section>
+
+    <!-- EL CEREBRO PARA EL MENÚ -->
     <script>
         function abrirCerrar() {
             var menu = document.getElementById("menuLateral");
@@ -269,13 +157,6 @@
             }
         }
     </script>
+
 </body>
 </html>
-
-<!-- El Menú con tus categorías reales -->
-<div id="menuLateral" class="sidenav">
-  <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
-  <a href="LocaViditaMiaArtesanías.html">Loca Vidita Mia Artesanías</a>
-  <a href="ImanesDark.html">Imanes dark</a>
-  <a href="Sobremi.html">Sobre mi</a>
-</div>
