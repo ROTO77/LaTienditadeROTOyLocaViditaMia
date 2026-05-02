@@ -1,3 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuadernos | Mi Tienda</title>
+    <style>
+        /* EL MAQUILLAJE (Igual en todas las páginas) */
+        body { font-family: sans-serif; background-color: #000; color: white; margin: 0; padding: 20px; }
+        
+        .sidenav {
+            height: 100%; width: 0; position: fixed; z-index: 1000;
+            top: 0; left: 0; background-color: #111; overflow-x: hidden;
+            transition: 0.5s; padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 10px 30px; text-decoration: none; font-size: 22px;
+            color: #ff00ff; display: block; transition: 0.3s;
+        }
+
+        .sidenav a:hover { color: #fdfd96; }
+
+        .btn-menu {
+            font-size: 20px; cursor: pointer; background-color: #ff00ff;
+            color: white; padding: 10px 15px; border: none; border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EL MENÚ (Igual en todas las páginas) -->
+    <div id="menuLateral" class="sidenav">
+        <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
+        <a href="index.html">Inicio</a>
+        <a href="cuadernos.html">Cuadernos</a>
+        <a href="artesanias.html">Artesanías</a>
+        <a href="laminas.html">Láminas</a>
+    </div>
+
+    <button class="btn-menu" onclick="abrirCerrar()">☰ Categorías</button>
+
+    <!-- CONTENIDO ESPECÍFICO DE ESTA PÁGINA -->
+    <h1>Sección de Cuadernos</h1>
+    <p>Aquí empezarás a subir las fotos de tus cuadernos...</p>
+
+    <!-- EL CEREBRO (Igual en todas las páginas) -->
+    <script>
+        function abrirCerrar() {
+            var menu = document.getElementById("menuLateral");
+            if (menu.style.width === "250px") {
+                menu.style.width = "0";
+            } else {
+                menu.style.width = "250px";
+            }
+        }
+    </script>
+</body>
+</html>
+
 <!-- El Menú con tus categorías reales -->
 <div id="menuLateral" class="sidenav">
   <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
