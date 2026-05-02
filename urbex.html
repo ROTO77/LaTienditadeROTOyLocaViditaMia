@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbex - El Arte del Olvido</title>
+    <style>
+        /* 1. CONFIGURACIÓN GENERAL (ESTILO URBEX) */
+        body { 
+            font-family: 'Arial Black', sans-serif; 
+            background-color: #48494B; /* GRIS TOPO */
+            color: #ffffff; /* LETRAS BLANCAS */
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+        }
+
+        header { 
+            background-color: #1a1a1a; 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid #ffea00; /* Amarillo para contraste */
+        }
+
+        h1 { 
+            color: #ffea00; 
+            margin: 0; 
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* 2. MENÚ LATERAL AUTOMÁTICO */
+        .nav-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 60px;
+            z-index: 1001;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: #1a1a1a; 
+            overflow-x: hidden;
+            transition: 0.5s ease;
+            padding-top: 80px;
+        }
+
+        .nav-container:hover .sidenav {
+            width: 280px;
+        }
+
+        .sidenav a {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ff00ff; /* Fucsia */
+            display: block;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .sidenav a:hover { 
+            color: #ffea00; 
+            background-color: #333;
+            padding-left: 40px;
+        }
+
+        .btn-menu-fake {
+            position: fixed;
+            top: 20px;
+            left: 15px;
+            background-color: #ff00ff;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 5px;
+            font-size: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* 3. SECCIÓN DE TEXTO */
+        #presentacion {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(26, 26, 26, 0.8); /* Fondo oscuro semi-transparente */
+            border: 2px solid #ffea00;
+        }
+
+        h2 {
+            color: #ff00ff;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .texto-urbex {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        /* 4. GALERÍA DE FOTOS (TODAS TUS IMÁGENES) */
+        .galeria-urbex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .galeria-urbex img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border: 3px solid #fff;
+            filter: grayscale(40%);
+            transition: 0.4s;
+        }
+
+        .galeria-urbex img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+            border-color: #ffea00;
+        }
+
+        /* 5. NAVEGACIÓN INFERIOR */
+        .navegacion-iconos {
+            text-align: center;
+            padding: 40px;
+            background: #1a1a1a;
+            margin-top: 50px;
+        }
+
+        .navegacion-iconos img {
+            border: 3px solid #ff00ff;
+            border-radius: 50%;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .navegacion-iconos img:hover {
+            transform: rotate(-10deg);
+            border-color: #ffea00;
+        }
+
+        .boton-contenedor {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .boton-estilo {
+            background-color: #ffea00;
+            color: #1a1a1a;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            border: 3px solid #ffffff;
+            box-shadow: 6px 6px 0px #ff00ff;
+            transition: 0.2s;
+        }
+
+        .boton-estilo:hover {
+            background-color: #ff00ff;
+            color: white;
+            box-shadow: 6px 6px 0px #ffea00;
+        }
+
+        footer {
+            background: #000;
+            color: #888;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- MENÚ LATERAL -->
+<div class="nav-container">
+    <div class="btn-menu-fake">☰</div>
+    <div id="menuLateral" class="sidenav">
+        <a href="index.html">Página Principal</a>
+        <a href="roto.html">El lado ROTO de la luna</a>
+        <a href="LVM.html">Loca Vidita Mia</a>
+    </div>
+</div>
+
+<header>
+    <h1>Fotografías URBEX</h1>
+</header>
+
+<main>
+    <section id="presentacion">
+        <h2>El Arte de Fotografiar el Olvido</h2>
+        
+        <div class="texto-urbex">
+            <p>
+                El hoy llamado URBEX es la práctica de recorrer lugares que quedaron en el olvido.<br><br>
+                La palabra proviene de <strong>"Urban Exploration"</strong> y consiste en explorar lugares que ya nadie habita, 
+                donde queda esa energía casi palpable, como si los ecos del tiempo no quisieran irse del todo.<br><br>
+                Cada rincón guarda una memoria, cada pared susurra una historia, cada objeto olvidado es un testimonio silente de lo que fue. 
+                Todo está envuelto en una atmósfera melancólica.<br><br>
+                Donde el común de la gente ve un lugar descuidado y algo tétrico, justo ahí, veo historias y escenarios perfectos para fotografiar.<br><br>
+                Me dedico a esto de manera amateur. No cuento con una cámara profesional, pero hoy todos los teléfonos llevan una, y con eso basta. 
+                Afino el ojo y disparo, tratando de capturar ese extraño sentimiento que me invade cada vez que entro a estos lugares.<br><br>
+                <strong>Sean bienvenidos a esta breve muestra del abandono y el olvido.</strong>
+            </p>
+        </div>
+
+        <!-- AQUÍ ESTÁN TODAS TUS IMÁGENES JPG -->
+        <div class="galeria-urbex">
+            <img src="urbex1.jpg" alt="Urbex 1">
+            <img src="urbex2.jpg" alt="Urbex 2">
+            <img src="urbex3.jpg" alt="Urbex 3">
+            <img src="urbex4.jpg" alt="Urbex 4">
+            <img src="urbex5.jpg" alt="Urbex 5">
+            <img src="urbex6.jpg" alt="Urbex 6">
+            <img src="urbex7.jpg" alt="Urbex 7">
+            <img src="urbex8.jpg" alt="Urbex 8">
+            <img src="urbex9.jpg" alt="Urbex 9">
+            <img src="urbex10.jpg" alt="Urbex 10">
+            <img src="urbex11.jpg" alt="Urbex 11">
+            <img src="urbex12.jpg" alt="Urbex 12">
+            <img src="urbex13.jpg" alt="Urbex 13">
+            <img src="urbex14.jpg" alt="Urbex 14">
+            <img src="urbex15.jpg" alt="Urbex 15">
+            <img src="urbex16.jpg" alt="Urbex 16">
+        </div>
+
+        <!-- NAVEGACIÓN INFERIOR -->
+        <div class="navegacion-iconos">
+            <a href="LVM.html">
+                <img src="lvm2.jpg" width="100" height="100" alt="LVM">
+            </a>
+            <a href="roto.html">
+                <img src="roto1.jpg" width="100" height="100" alt="Roto">
+            </a>
+            <div class="boton-contenedor">
+                <a href="index.html" class="boton-estilo"> >>> VOLVER AL INICIO <<< </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 - [Valeria Tremul] | Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
