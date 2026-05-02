@@ -93,7 +93,47 @@
             background-color: #1ebe57;
             transform: translateY(-2px);
         }
-    </style>
+    </style> 
+    <style>
+  /* El menú lateral */
+  .sidenav {
+    height: 100%;
+    width: 0; /* Empieza escondido */
+    position: fixed;
+    z-index: 1000; /* Para que aparezca arriba de tus productos */
+    top: 0;
+    left: 0;
+    background-color: #000;
+    overflow-x: hidden;
+    transition: 0.5s; /* El tiempo que tarda en deslizarse */
+    padding-top: 60px;
+  }
+
+  /* Los enlaces de tus categorías */
+  .sidenav a {
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #ff00ff; /* Fucsia */
+    display: block;
+    transition: 0.3s;
+  }
+
+  /* El color cuando pasas el mouse */
+  .sidenav a:hover { color: #fdfd96; }
+
+  /* El botón para abrir el menú */
+  .btn-menu {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ff00ff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+  }
+</style>
 </head>
 <body>
 
