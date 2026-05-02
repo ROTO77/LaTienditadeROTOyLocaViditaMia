@@ -5,164 +5,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loca Vidita Mia | Artesanías</title>
     <style>
-        /* ESTILO BASE ROTO/LVM */
+        /* 1. CONFIGURACIÓN GENERAL (ESTILO LVM / ROTO / URBEX) */
         body { 
-            font-family: sans-serif; 
-            background-color: #3d3d3d; /* Gris Topo Oscuro */
-            color: white; 
+            font-family: 'Arial Black', sans-serif; 
+            background-color: #48494B; /* GRIS TOPO COHERENTE */
+            color: #ffffff; 
             margin: 0; 
-            padding: 10px; 
+            padding: 0; 
             line-height: 1.6;
             text-align: center;
         }
-        
-        header { padding: 20px 0; }
-        h1 { color: #fdfd96; font-size: 32px; margin: 0; } /* Amarillo Pastel */
-        header p { color: #ff00ff; font-style: italic; margin-top: 5px; } /* Fucsia */
 
-        /* MENÚ LATERAL */
+        header { 
+            background-color: #1a1a1a; 
+            padding: 60px 20px; 
+            border-bottom: 5px solid #ffea00; 
+        }
+
+        h1 { 
+            color: #ffea00; 
+            margin: 0; 
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        header p { 
+            color: #ff00ff; /* Fucsia */
+            font-size: 1.2em;
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        /* 2. MENÚ LATERAL AUTOMÁTICO (ESTILO UNIFICADO) */
+        .nav-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 60px;
+            z-index: 1001;
+        }
+
         .sidenav {
-            height: 100%; width: 0; position: fixed; z-index: 1000;
-            top: 0; left: 0; background-color: #111; overflow-x: hidden;
-            transition: 0.5s; padding-top: 60px; text-align: left;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: #1a1a1a; 
+            overflow-x: hidden;
+            transition: 0.5s ease;
+            padding-top: 80px;
+            text-align: left;
         }
+
+        .nav-container:hover .sidenav {
+            width: 280px;
+        }
+
         .sidenav a {
-            padding: 10px 30px; text-decoration: none; font-size: 20px;
-            color: #ff00ff; display: block; transition: 0.3s;
-        }
-        .sidenav a:hover { color: #fdfd96; }
-
-        .btn-menu {
-            position: absolute; top: 20px; left: 10px;
-            font-size: 18px; cursor: pointer; background-color: #ff00ff;
-            color: white; padding: 10px 15px; border: none; border-radius: 5px;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ff00ff;
+            display: block;
+            transition: 0.3s;
+            white-space: nowrap;
         }
 
-        /* SECCIÓN TEXTO */
-        #presentacion { max-width: 900px; margin: 60px auto 0 auto; }
-        h2 { color: #fdfd96; font-size: 22px; margin-bottom: 20px; }
+        .sidenav a:hover { 
+            color: #ffea00; 
+            background-color: #333;
+            padding-left: 40px;
+        }
 
-        /* GALERÍA DE FOTOS (UNA AL LADO DE LA OTRA) */
+        .btn-menu-fake {
+            position: fixed;
+            top: 20px;
+            left: 15px;
+            background-color: #ff00ff;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 5px;
+            font-size: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* 3. SECCIÓN TEXTO */
+        #presentacion { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 40px;
+            background: rgba(26, 26, 26, 0.8); 
+            border: 2px solid #ffea00;
+        }
+
+        h2 { 
+            color: #ffea00; 
+            font-size: 24px; 
+            text-transform: uppercase;
+            border-left: 8px solid #ff00ff;
+            padding-left: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .texto-contenido {
+            font-family: 'Arial', sans-serif;
+            text-align: left;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        /* 4. GALERÍA DE FOTOS (UNA AL LADO DE LA OTRA) */
         .galeria-fotos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             padding: 20px 0;
         }
 
         .galeria-fotos img {
-            width: 300px; /* Tamaño para PC */
+            width: 100%;
             height: 350px;
             object-fit: cover;
-            border-radius: 2px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border: 3px solid #ffffff;
+            box-shadow: 8px 8px 0px #1a1a1a;
+            transition: 0.3s;
         }
 
-        /* BOTONES */
+        .galeria-fotos img:hover {
+            transform: scale(1.02);
+            border-color: #ff00ff;
+            box-shadow: 8px 8px 0px #ffea00;
+        }
+
+        /* 5. BOTONES Y NAVEGACIÓN */
         .boton-estilo {
             display: inline-block;
             background-color: #ff00ff;
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
+            padding: 20px 40px;
             font-weight: bold;
             margin: 20px 0;
+            border: 3px solid #1a1a1a;
+            box-shadow: 6px 6px 0px #ffea00;
+            transition: 0.2s;
+        }
+
+        .boton-estilo:hover { 
+            background-color: #1a1a1a; 
+            color: #ffea00;
+            box-shadow: 6px 6px 0px #ff00ff;
+        }
+
+        .iconos-secciones img {
+            border-radius: 50%; 
+            border: 3px solid #ffea00; 
+            margin: 10px;
             transition: 0.3s;
         }
-        .boton-estilo:hover { background-color: #d400d4; }
 
-        footer { text-align: center; padding: 40px 0; font-size: 12px; color: #aaa; }
-
-        /* ADAPTACIÓN PARA CELULAR */
-        @media screen and (max-width: 600px) {
-            .galeria-fotos { gap: 8px; padding: 10px 0; }
-            .galeria-fotos img {
-                width: 48%; /* Dos fotos por fila ocupando la pantalla */
-                height: 200px; 
-            }
-            h1 { font-size: 24px; }
-            #presentacion { margin-top: 80px; padding: 0 10px; }
+        .iconos-secciones img:hover {
+            transform: scale(1.2);
+            border-color: #ff00ff;
         }
+
+        footer { 
+            background: #000;
+            color: #8E867E; 
+            padding: 40px 0; 
+            font-size: 12px; 
+            border-top: 4px solid #ffea00;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- MENÚ LATERAL -->
-    <div id="menuLateral" class="sidenav">
-        <a href="javascript:void(0)" onclick="abrirCerrar()" style="font-size: 30px;">&times; Cerrar</a>
-        <a href="index.html">Inicio</a>
-        <a href="cuadernos.html">Cuadernos</a>
-        <a href="imanesdark.html">Imanes Dark</a>
-        <a href="roto.html">ROTO</a>
-        <a href="urbex.html">Sobre el URBEX</a>
-        <a href="sobremi.html">Sobre mí</a>
+    <!-- MENÚ LATERAL AUTOMÁTICO -->
+    <div class="nav-container">
+        <div class="btn-menu-fake">☰</div>
+        <div id="menuLateral" class="sidenav">
+            <a href="index.html">Página Principal</a>
+            <a href="cuadernos.html">Cuadernos</a>
+            <a href="imanesdark.html">Imanes Dark</a>
+            <a href="roto.html">El Lado ROTO</a>
+            <a href="urbex.html">Sobre el URBEX</a>
+            <a href="sobremi.html">Sobre mí</a>
+        </div>
     </div>
 
-    <button class="btn-menu" onclick="abrirCerrar()">☰ Categorías</button>
-
     <header>
-        <p>
-        <P></P>
-        </p>
         <h1>Loca Vidita Mia</h1>
         <p>Un viaje a lo recontra Profundo</p>
     </header>
 
-    <section id="presentacion">
-        <h2>Un emprendimiento que nace en el 2010</h2>
-        <p>
-            Esta galería es la muestra de algunos trabajos realizados a diferentes clientes.<br><br>
-            Loca Vidita Mia surge de la necesidad de trabajar habiéndome convertido en madre 
-            y desempleada casi al mismo tiempo.<br><br>
-            Según dicen "No hay mal que por bien no venga", gracias a ser despedida y como mencioné anteriormente, 
-            era madre de un recién nacido; la situación me forzó a buscar algún fuerte 
-            para poder generar ingresos sin salir del hogar y cuidar a mi hijo.
-        </p>
+    <main>
+        <section id="presentacion">
+            <h2>Un emprendimiento que nace en el 2010</h2>
+            <div class="texto-contenido">
+                <p>
+                    Esta galería es la muestra de algunos trabajos realizados a diferentes clientes.<br><br>
+                    Loca Vidita Mia surge de la necesidad de trabajar habiéndome convertido en madre 
+                    y desempleada casi al mismo tiempo.<br><br>
+                    Según dicen "No hay mal que por bien no venga", gracias a ser despedida y como mencioné anteriormente, 
+                    era madre de un recién nacido; la situación me forzó a buscar algún fuerte 
+                    para poder generar ingresos sin salir del hogar y cuidar a mi hijo.
+                </p>
+            </div>
 
-        <!-- GALERÍA COMPLETA (RECUPERADA) -->
-        <div class="galeria-fotos">
-            <img src="lvm1.jpg" alt="LVM 1">
-            <img src="lvm2.jpg" alt="LVM 2">
-            <img src="lvm3.jpg" alt="LVM 3">
-            <img src="lvm4.jpg" alt="LVM 4">
-            <img src="lvm5.jpg" alt="LVM 5">
-            <img src="lvm6.jpg" alt="LVM 6">
-            <img src="lvm7.jpg" alt="LVM 7">
-            <img src="lvm9.jpg" alt="LVM 9">
-            <img src="lvm8.jpg" alt="LVM 8">
-            <img src="lvm10.jpg" alt="LVM 10">
-            <img src="lvm11.jpg" alt="LVM 11">
-            <img src="lvm12.jpg" alt="LVM 12">
-            <img src="lvm13.jpg" alt="LVM 13">
-            <img src="lvm15.jpg" alt="LVM 15">
-        </div>
+            <!-- GALERÍA COMPLETA (RESPETANDO TUS JPG) -->
+            <div class="galeria-fotos">
+                <img src="lvm1.jpg" alt="LVM 1">
+                <img src="lvm2.jpg" alt="LVM 2">
+                <img src="lvm3.jpg" alt="LVM 3">
+                <img src="lvm4.jpg" alt="LVM 4">
+                <img src="lvm5.jpg" alt="LVM 5">
+                <img src="lvm6.jpg" alt="LVM 6">
+                <img src="lvm7.jpg" alt="LVM 7">
+                <img src="lvm9.jpg" alt="LVM 9">
+                <img src="lvm8.jpg" alt="LVM 8">
+                <img src="lvm10.jpg" alt="LVM 10">
+                <img src="lvm11.jpg" alt="LVM 11">
+                <img src="lvm12.jpg" alt="LVM 12">
+                <img src="lvm13.jpg" alt="LVM 13">
+                <img src="lvm15.jpg" alt="LVM 15">
+            </div>
 
-        <a href="masfotoslvm.html" class="boton-estilo">VER MÁS FOTOS</a>
+            <a href="masfotoslvm.html" class="boton-estilo">VER MÁS FOTOS</a>
 
-        <div style="margin: 40px 0;">
-            <p style="color: #fdfd96;">Explora más secciones:</p>
-            <a href="roto.html"><img src="roto1.jpg" width="80" height="80" style="border-radius: 50%; border: 2px solid #ff00ff; margin: 10px;" alt="Roto"></a>
-            <a href="urbex.html"><img src="urbex1.jpg" width="80" height="80" style="border-radius: 50%; border: 2px solid #ff00ff; margin: 10px;" alt="Urbex"></a>
-        </div>
+            <div class="iconos-secciones" style="margin: 40px 0;">
+                <p style="color: #ffea00; text-transform: uppercase;">Explora más secciones:</p>
+                <a href="roto.html"><img src="roto1.jpg" width="100" height="100" alt="Roto"></a>
+                <a href="urbex.html"><img src="urbex1.jpg" width="100" height="100" alt="Urbex"></a>
+            </div>
 
-        <a href="index.html" class="boton-estilo" style="background-color: transparent; border: 1px solid #ff00ff;">VOLVER AL INICIO</a>
-    </section>
+            <a href="index.html" class="boton-estilo" style="background-color: transparent; border: 3px solid #ff00ff;">VOLVER AL INICIO</a>
+        </section>
+    </main>
 
     <footer>
         <p>© 2026 - [Valeria Tremul] | Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        function abrirCerrar() {
-            var menu = document.getElementById("menuLateral");
-            if (menu.style.width === "250px") {
-                menu.style.width = "0";
-            } else {
-                menu.style.width = "250px";
-            }
-        }
-    </script>
 </body>
 </html>
