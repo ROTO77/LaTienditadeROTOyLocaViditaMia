@@ -236,6 +236,30 @@
     </div>
     <p class="copyright">&copy; 2026 Loca Vidita Mia | Todos los derechos reservados.</p>
 </footer>
+<script>
+    // 1. Identificamos el input del buscador
+    const buscadorTienda = document.getElementById('inputBusqueda');
 
+    // 2. Escuchamos lo que el usuario escribe (evento 'keyup')
+    buscadorTienda.addEventListener('keyup', function() {
+        // Convertimos lo que escriben a minúsculas para que no haya error con Mayúsculas
+        let filtro = buscadorTienda.value.toLowerCase();
+        
+        // Seleccionamos todas las tarjetas de productos
+        let tarjetas = document.querySelectorAll('.tarjeta');
+
+        tarjetas.forEach(tarjeta => {
+            // Obtenemos el texto del título (h3) y de los párrafos (p) de cada tarjeta
+            let contenido = tarjeta.innerText.toLowerCase();
+
+            // Si el contenido de la tarjeta incluye lo que escribimos en el buscador...
+            if (contenido.includes(filtro)) {
+                tarjeta.style.display = ""; // Se muestra la tarjeta
+            } else {
+                tarjeta.style.display = "none"; // Se oculta la tarjeta
+            }
+        });
+    });
+</script>
 </body>
 </html>
