@@ -9,14 +9,14 @@
         /* 1. CONFIGURACIÓN GENERAL */
         body { 
             font-family: 'Arial Black', sans-serif; 
-            background-color: #8E867E; /* Gris Topo */
+            background-color: #f2f0ef; 
             color: #333; 
             margin: 0; 
             padding: 0; 
         }
 
         header { 
-            background-color: #1a1a1a; 
+            background-color: #8E867E; 
             padding: 50px 20px; 
             text-align: center; 
             border-bottom: 4px solid #ffea00; 
@@ -32,12 +32,13 @@
 
         header p { 
             color: #ffffff; 
+            font-weight: normal; 
             margin-top: 15px;
             font-size: 1.1em;
             line-height: 1.6;
         }
 
-        /* 2. MENÚ LATERAL */
+        /* 2. MENÚ LATERAL AUTOMÁTICO (HOVER) */
         .nav-container {
             position: fixed;
             left: 0;
@@ -107,7 +108,6 @@
             font-family: inherit;
             font-size: 1rem;
             outline: none;
-            background-color: #f2f0ef;
         }
 
         /* 4. GALERÍA DE PRODUCTOS */
@@ -119,16 +119,19 @@
         }
 
         .tarjeta { 
-            background: #1a1a1a; 
+            background: #8E867E; 
             border-radius: 15px; 
             overflow: hidden; 
             border: 2px solid #ffea00; 
             text-align: center; 
             padding-bottom: 25px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .tarjeta:hover { transform: translateY(-5px); }
+        .tarjeta:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
         .tarjeta img { 
             width: 100%; 
@@ -142,7 +145,7 @@
             color: #ffea00; 
             margin: 20px 10px 10px; 
             font-size: 1.1em;
-            min-height: 50px; 
+            min-height: 50px;
         }
 
         .precio { 
@@ -164,22 +167,27 @@
             transition: 0.3s;
         }
 
-        .btn-whatsapp:hover { transform: scale(1.05); }
+        .btn-whatsapp:hover {
+            background-color: #1ebe57;
+            transform: scale(1.05);
+        }
 
-        .sin-stock { background-color: #555 !important; cursor: not-allowed; }
+        .sin-stock {
+            background-color: #555 !important;
+            cursor: not-allowed;
+        }
 
-        /* 5. BOTÓN VOLVER */
+        /* 5. BOTON VOLVER Y PIE */
         .boton-contenedor {
             text-align: center;
-            padding: 50px 0;
-            background-color: #8E867E;
+            padding: 40px 0;
         }
 
         .boton-estilo {
-            background-color: #ff00ff; 
+            background-color: #ff00ff;
             color: white;
             text-decoration: none;
-            padding: 15px 35px;
+            padding: 15px 30px;
             border-radius: 10px;
             font-weight: bold;
             border: 3px solid #ffea00;
@@ -191,10 +199,8 @@
         .boton-estilo:hover {
             background-color: #ffea00;
             color: #1a1a1a;
-            transform: scale(1.05);
         }
 
-        /* 6. PIE DE PÁGINA */
         .pie-pagina {
             background-color: #1a1a1a;
             color: white;
@@ -226,7 +232,10 @@
 
 <header>
     <h1>La tiendita de ROTO y Loca Vidita Mia</h1>
-    <p>Objetos coloridos que rompen la monotonía y transforman los espacios<br><strong>UNA PÁGINA EN CONSTANTE CONSTRUCCIÓN</strong></p>
+    <p>
+        Objetos coloridos que rompen la monotonía y transforman los espacios<br>
+        <strong>UNA PÁGINA EN CONSTANTE CONSTRUCCIÓN</strong>
+    </p>
 </header>
 
 <div class="buscador-contenedor">
@@ -434,4 +443,48 @@
         <img src="roto21.jpg" alt="Producto">
         <h3>Cuaderno A5 NOSFERATU - Tapa Dura Laminada</h3>
         <span class="precio">$ 28.000</span>
-        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el
+        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el Cuaderno A5 NOSFERATU" class="btn-whatsapp">COMPRAR</a>
+    </div>
+
+    <div class="tarjeta"> 
+        <img src="roto22.jpg" alt="Producto">
+        <h3>Cuaderno A5 ROTO vampi - Tapa Dura Laminada</h3>
+        <span class="precio">$ 28.000-</span>
+        <a href="https://wa.me/5491130688712?text=Hola! Me interesa el Cuaderno A5 ROTO vampi dura" class="btn-whatsapp">COMPRAR</a>
+    </div>
+</section>
+
+<div class="boton-contenedor">
+    <a href="index.html" class="boton-estilo"> >>> VOLVER AL INICIO <<< </a>
+</div>
+
+<footer class="pie-pagina">
+    <div class="redes-sociales">
+        <a href="https://www.instagram.com/loca.vidita.mia/" target="_blank" class="enlace-red">Instagram</a>
+        <a href="https://www.instagram.com/el.ladoroto.delaluna?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="enlace-red">Instagram</a>
+        <a href="mailto:lutoys2009@yahoo.com.ar" class="enlace-red">Email</a>
+    </div>
+    <p class="copyright">&copy; 2026 Loca Vidita Mia - Hecho con amor</p>
+    <p>© 2025 - [Valeria Tremul] | Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // SCRIPT DEL BUSCADOR
+    const buscadorTienda = document.getElementById('inputBusqueda');
+    buscadorTienda.addEventListener('keyup', function() {
+        let filtro = buscadorTienda.value.toLowerCase();
+        let tarjetas = document.querySelectorAll('.tarjeta');
+
+        tarjetas.forEach(tarjeta => {
+            let contenido = tarjeta.innerText.toLowerCase();
+            if (contenido.includes(filtro)) {
+                tarjeta.style.display = ""; 
+            } else {
+                tarjeta.style.display = "none"; 
+            }
+        });
+    });
+</script>
+
+</body>
+</html>.me/5491130688712?text=Hola! Me interesa el
